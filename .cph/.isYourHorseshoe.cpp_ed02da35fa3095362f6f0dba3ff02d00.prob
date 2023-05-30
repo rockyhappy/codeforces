@@ -1,0 +1,1 @@
+{"name":"Local: isYourHorseshoe","url":"c:\\Users\\hp world\\C\\codeForces\\isYourHorseshoe.cpp","tests":[{"id":1681742795718,"input":"1 7 3 3","output":"1"},{"id":1681742808018,"input":"7 7 7 7","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\isYourHorseshoe.cpp","group":"local","local":true}

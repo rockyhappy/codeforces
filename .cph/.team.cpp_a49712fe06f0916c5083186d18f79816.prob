@@ -1,0 +1,1 @@
+{"name":"Local: team","url":"c:\\Users\\hp world\\C\\codeForces\\team.cpp","tests":[{"id":1681820640901,"input":"3\n1 1 0\n1 1 1\n1 0 0","output":"2"},{"id":1681820654348,"input":"2\n1 0 0\n0 1 1","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\team.cpp","group":"local","local":true}

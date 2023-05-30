@@ -1,0 +1,1 @@
+{"name":"Local: insomniaCure","url":"c:\\Users\\hp world\\C\\codeForces\\insomniaCure.cpp","tests":[{"id":1681633568378,"input":"1\n2\n3\n4\n12","output":"12"},{"id":1681633586426,"input":"2\n3\n4\n5\n24","output":"17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\insomniaCure.cpp","group":"local","local":true}
