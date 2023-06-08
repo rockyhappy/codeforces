@@ -1,0 +1,1 @@
+{"name":"Local: ChipherShifer","url":"c:\\Users\\hp world\\C\\codeForces\\ChipherShifer.cpp","tests":[{"id":1686062642260,"input":"3\n8\nabacabac\n5\nqzxcq\n20\nccooddeeffoorrcceess","output":"ac\nq\ncodeforces"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\ChipherShifer.cpp","group":"local","local":true}

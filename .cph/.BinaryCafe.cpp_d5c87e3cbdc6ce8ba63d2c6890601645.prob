@@ -1,0 +1,1 @@
+{"name":"Local: BinaryCafe","url":"c:\\Users\\hp world\\C\\codeForces\\BinaryCafe.cpp","tests":[{"id":1686231015848,"input":"5\n1 2\n2 1\n2 2\n10 2\n179 100","output":"2\n2\n3\n4\n180"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\BinaryCafe.cpp","group":"local","local":true}
