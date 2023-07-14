@@ -1,0 +1,1 @@
+{"name":"Local: ChallengingCliff","url":"c:\\Users\\hp world\\C\\codeForces\\ChallengingCliff.cpp","tests":[{"id":1688747714868,"input":"2\n4\n4 2 1 2\n2\n3 1","output":"2 4 1 2 \n1 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\ChallengingCliff.cpp","group":"local","local":true}

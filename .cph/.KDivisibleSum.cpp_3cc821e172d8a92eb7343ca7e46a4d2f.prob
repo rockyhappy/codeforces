@@ -1,0 +1,1 @@
+{"name":"Local: KDivisibleSum","url":"c:\\Users\\hp world\\C\\codeForces\\KDivisibleSum.cpp","tests":[{"id":1689328302641,"input":"4\n1 5\n4 3\n8 8\n8 17","output":"5\n2\n1\n3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\KDivisibleSum.cpp","group":"local","local":true}
