@@ -1,0 +1,1 @@
+{"name":"Local: Laptops","url":"c:\\Users\\hp world\\C\\codeForces\\Laptops.cpp","tests":[{"id":1689772749284,"input":"2\n1 2\n2 1","output":"Happy Alex"},{"id":1689772914631,"input":"2\n1 1\n2 2","output":"Poor Alex"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\hp world\\C\\codeForces\\Laptops.cpp","group":"local","local":true}
