@@ -1,16 +1,16 @@
 /**
- * This is a codeforces question and the solution for the same 
- * The question link is given below
- * https://codeforces.com/contest/1843/problem/A
+ * This is a codeforces question and the slution for the same 
+ * The question link is as follows
+ * https://codeforces.com/problemset/problem/1557/A
  * 
  * The solution for the same is 
- * 
+ * https://codeforces.com/contest/1557/submission/215492330
 */
 #include<iostream>
 #include<map>
 #include<vector>
 #include<math.h>
-#include<bits/stdc++.h>
+#include <iomanip>
 using namespace std;
  
 #define endl '\n'
@@ -24,29 +24,24 @@ int main()
         freopen("output.txt", "w", stdout);
         #endif
         fastio();
-    int t;
+    int t ;
     cin>>t;
     while(t--)
     {
         int n;
         cin>>n;
         vector<int> vec(n);
+        long long int sum=0,largest=INT_MIN;
         for (int i = 0; i < n; i++)
         {
             cin>>vec[i];
+            if(largest<vec[i])
+                largest=vec[i];
+            sum+=vec[i];
         }
-        if(n==1){
-            cout<<0<<endl;
-            continue;
-        }
-        sort(vec.begin(),vec.end());
-        long long int ans=0;
-        for(int i=0;i<n/2;i++)
-        {
-         ans+=abs(vec[n-1-i]-vec[i])                 ;
-
-        }
-        cout<<ans<<endl;
-        
+        sum-=largest;
+        std::cout << std::setprecision(9) << std::fixed;
+        double alpha=sum/(double)(n-1);
+        cout<<alpha+largest<<endl;
     }
 }

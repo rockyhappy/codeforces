@@ -1,0 +1,1 @@
+{"name":"Local: ForbiddenInteger","url":"d:\\BackUp\\C\\codeForces\\ForbiddenInteger.cpp","tests":[{"id":1690547077739,"input":"5\n10 3 2\n5 2 1\n4 2 1\n7 7 3\n6 1 1","output":"YES\n6\n3 1 1 1 1 3\nNO\nYES\n2\n2 2\nYES\n1\n7\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\BackUp\\C\\codeForces\\ForbiddenInteger.cpp","group":"local","local":true}

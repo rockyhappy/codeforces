@@ -1,16 +1,15 @@
 /**
- * This is a codeforces question and the solution for the same 
- * The question link is given below
- * https://codeforces.com/contest/1843/problem/A
+ * This is a codeforces question and the solutionfor the same 
+ * The question link is as follows
+ * https://codeforces.com/contest/1853/problem/A
  * 
- * The solution for the same is 
+ * The solution link for the same is
  * 
 */
 #include<iostream>
 #include<map>
 #include<vector>
 #include<math.h>
-#include<bits/stdc++.h>
 using namespace std;
  
 #define endl '\n'
@@ -24,29 +23,35 @@ int main()
         freopen("output.txt", "w", stdout);
         #endif
         fastio();
-    int t;
+    int t ;
     cin>>t;
     while(t--)
     {
         int n;
         cin>>n;
         vector<int> vec(n);
+        int difference=INT_MAX,index,flag=0;
         for (int i = 0; i < n; i++)
         {
             cin>>vec[i];
+            if(i>0&&vec[i]<vec[i-1])
+            {
+                flag=1;
+            }
         }
-        if(n==1){
+        for (int i = 0; i < n; i++)
+        {
+            if(i>0&&difference>vec[i]-vec[i-1])
+            {
+                difference=vec[i]-vec[i-1];
+                index=i;
+            }
+        }
+        if(flag==1)
+        {
             cout<<0<<endl;
             continue;
         }
-        sort(vec.begin(),vec.end());
-        long long int ans=0;
-        for(int i=0;i<n/2;i++)
-        {
-         ans+=abs(vec[n-1-i]-vec[i])                 ;
-
-        }
-        cout<<ans<<endl;
-        
+        cout<<((vec[index]-vec[index-1])/2)+1<<endl;
     }
 }
