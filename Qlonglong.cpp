@@ -1,7 +1,10 @@
 /**
  * This is a codeforces question and the solution for the same 
  * The question link is 
+ * https://codeforces.com/contest/1843/problem/B
  * 
+ * the solution for the same is 
+ * https://codeforces.com/contest/1843/submission/216489063
 */
 #include<iostream>
 #include<map>

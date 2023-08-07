@@ -4,7 +4,7 @@
  * https://codeforces.com/contest/1843/problem/A
  * 
  * The solution for the same is 
- * 
+ * https://codeforces.com/contest/1843/submission/216235221
 */
 #include<iostream>
 #include<map>
