@@ -7,15 +7,6 @@ using namespace std;
  
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-long long int checker(long long int n,vector<long long int> vec,long long c,long long int target)
-{
-    for (int i = 0; i < n; i++)
-    {
-        c=c-(vec[i]+(target))*1ll*(vec[i]+(target));
-    }
-    return c;
-    
-}
 int main()
 {
     #ifndef ONLINE_JUDGE
@@ -29,37 +20,41 @@ int main()
     cin>>t;
     while(t--)
     {
-        long long int n,c;
-        cin>>n>>c;
-        vector<long long int > vec(n);
+        int n;
+        cin>>n;
+        vector<int> vec(n+1);
         long long int sum=0;
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <=n; i++)
         {
             cin>>vec[i];
+            sum+=vec[i];
         }
-        long long int  high=1e9,low=0,mid;
-        while(low<=high)
+        if(n==1)
         {
-            long long int  ca=0;
-            mid=low+(high-low)/2;
-            for(int i =0;i<n;i++){
-                ca+=(vec[i]+mid)*1ll*(vec[i]+mid);
-                if(ca>c)break;
-            }
-            if(ca==c)
-            {
-                break;
-            }
-            else if(ca<c)
-            {
-                low=mid+1;
-            }
-            else 
-            {
-                high=mid-1;
-            }
+            cout<<"NO"<<endl;
+            continue;
         }
-        cout<<(long long int )mid/2<<endl;
+         int count=0,flag=0;
+        for(int i =1;i<=n;i++)
+        {
+           if(vec[i]==1)
+           {
+            sum-=2;
+           }
+           else
+           {
+            sum-=(1);
+           }
+        }
+        if(sum<0)
+        {
+            cout<<"NO"<<endl;
+        }
+        else 
+        {
+            cout<<"YES"<<endl;
+        }
+        
         
     }
 }
