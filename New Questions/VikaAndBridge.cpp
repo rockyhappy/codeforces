@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<map>
 #include<vector>
@@ -20,19 +19,6 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n;
-        cin>>n;
-        vector<int> vec(n);
-        long long int sum =0;
-        for (int i = 0; i < n; i++)
-        {
-            cin>>vec[i];
-            sum+=vec[i];
-        }
-        if(sum%2==0)
-        cout<<"YES"<<endl;
-        else
-        cout<<"NO"<<endl;
         
     }
 }
