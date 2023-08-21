@@ -20,28 +20,53 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n ;
-        cin>>n;
-        int nn=((n-1)*n)/2;
-        vector<int> vec(nn);
-        set<int> st;
-        map<int,int> mp;
-        for (int i = 0; i < nn; i++)
+      string str;
+      cin>>str;
+      int flag=0;
+      int n =str.length();
+      if(n>=3)
+      {
+        cout<<"YES"<<endl;
+        for(int i=1;i<n;i++)
         {
-            cin>>vec[i];
-            st.insert(vec[i]);
-            mp[vec[i]]++;
+            if(str[i]==str[i-1])
+            flag=1;
         }
-        int hex=n-1;
-        for (auto i:st)
+        if(flag==1)
         {
-            while(mp[i]>0)
-            { mp[i]=mp[i] -hex;
-            cout<<i<<" ";
-            hex--;
-            
+            for(int i=0;i<n;i++)
+            {
+                cout<<"()";
+            }
         }
-        cout<<*max_element(vec.begin(),vec.end())<<endl;
+        else
+        {
+            for(int i=0;i<n;i++)
+            {
+                cout<<"(";
+            }
+            for(int i=0;i<n;i++)
+            {
+                cout<<")";
+            }
+        }
+        cout<<endl;
+      }
+      else if(n==2)
+      {
+        if(str=="()")
+            cout<<"NO"<<endl;
+        else if(str==")(")
+        {
+            cout<<"YES"<<endl;
+            cout<<"(())"<<endl;
+        }
+        else if(str=="(("||str=="))")
+        {
+            cout<<"YES"<<endl;
+            cout<<"()()"<<endl;
+        }
+      }
     }
 }
 
