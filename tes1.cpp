@@ -21,33 +21,9 @@ int main()
     cin>>t;
     while(t--)
     {
-       int n;
-       cin>>n;
-       vector<int> vec(n);
-       for (int i = 0; i < n; i++)
-       {
-        cin>>vec[i];
-       }
-       int count=0;
-       for(int i =n-1;i>0;i--)
-       {
-            if(vec[i]>vec[i-1])
-            {
-                int temp=i;
-                while(vec[i]>vec[i-1])
-                {
-                    //cout<<vec[i]<<endl;
-                    i--;
-                    if(i==0)
-                    break;
-                }
-                
-                    if((temp-i)%2==1)count++;
-                    count+=(temp-i)/2;
-                
-            }
-            
-       }
-       cout<<count<<endl;
+        int n;
+        cin>>n;
+        if(n<=4)cout<<"Bob"<<endl;
+        else cout<<" Alice"<<endl;
     }
 }

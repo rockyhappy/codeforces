@@ -2,7 +2,6 @@
 #include<map>
 #include<vector>
 #include<math.h>
-#include<bits/stdc++.h>
 using namespace std;
  
 #define endl '\n'
@@ -20,30 +19,26 @@ int main()
     cin>>t;
     while(t--)
     {
-      int n ,m ;
-      cin>>n>>m;
-      vector<string> vec(n);
-      for(int i=0;i<n;i++)
-      {
-        cin>>vec[i];
-      }
-      string str="vika";
-      int ind=0,flag=0;
-      for(int i=0;i<m;i++)
-      {
-        for(int j=0;j<n;j++)
+        int x,y,n;
+        cin>>x>>y>>n;
+        vector<int> vec(n+1);
+        vec[1]=x;
+        vec[n]=y;
+        int flag=0;
+        for(int i =2;i<=n;i++)
         {
-            if(flag==0 && vec[j][i]==str[ind])
+            vec[i]=vec[i-1]+i-1;
+            if(vec[n]>vec[i-1]+i-1)
             {
-                ind++;
-                if(ind==4)
                 flag=1;
                 break;
             }
         }
-      }
-      if(flag==1)cout<<"YES"<<endl;
-      else cout<<"NO"<<endl;
+        if(flag)cout<<-1<<endl;
+        else{
+            for(int i=1;i<n;i++)
+            cout<<vec[i]<<" ";
+            cout<<endl;
+        }
     }
 }
-

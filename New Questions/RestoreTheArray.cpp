@@ -20,30 +20,23 @@ int main()
     cin>>t;
     while(t--)
     {
-      int n ,m ;
-      cin>>n>>m;
-      vector<string> vec(n);
-      for(int i=0;i<n;i++)
-      {
-        cin>>vec[i];
-      }
-      string str="vika";
-      int ind=0,flag=0;
-      for(int i=0;i<m;i++)
-      {
-        for(int j=0;j<n;j++)
+        int n;cin>>n;
+        vector<int> vec1(n-1);
+        vector<int> vec2;
+        for (int i = 0; i < n-1; i++)
         {
-            if(flag==0 && vec[j][i]==str[ind])
-            {
-                ind++;
-                if(ind==4)
-                flag=1;
-                break;
-            }
+            cin>>vec1[i]; 
         }
-      }
-      if(flag==1)cout<<"YES"<<endl;
-      else cout<<"NO"<<endl;
+        vec2.push_back(vec1[0]);
+        for (int i = 1; i < n-1; i++)
+        {
+            vec2.push_back(min(vec1[i],vec1[i-1]));
+        }
+        vec2.push_back(vec1[n-2]);
+        for (int i = 0; i < n; i++)
+        {
+            cout<<vec2[i]<<" ";
+        }
+        cout<<endl;
     }
 }
-
