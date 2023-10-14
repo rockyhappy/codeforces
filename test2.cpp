@@ -1,51 +1,66 @@
-#include<iostream>
-#include<map>
-#include<vector>
-#include<math.h>
+#include <iostream>
+#include <vector>
+#include <map>
+#include <cmath>
+#include <algorithm>
 using namespace std;
- 
-#define endl '\n'
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+
 int main()
 {
-  #ifndef ONLINE_JUDGE
-      // for getting input from input.txt
-      freopen("input.txt", "r", stdin);
-      // for writing output to output.txt
-      freopen("output.txt", "w", stdout);
-      #endif
-      fastio();
-    int t ;
-    cin>>t;
-    while(t--)
+    int t;
+    cin >> t;
+
+    while (t--)
     {
-        int n ;
-        cin>>n;
-        vector<int> vec(n);
+        int n;
+        cin >> n;
+        vector<int> nums(n);
+
         for (int i = 0; i < n; i++)
         {
-          cin>>vec[i];
+            cin >> nums[i];
         }
-        vector<int> vec2;
-        vec2.push_back(vec[0]);
-        for (int i = 1; i < n; i++)
+
+        map<int, int> factorCounts;
+
+        for (int num : nums)
         {
-            if(vec[i]>=vec[i-1])
+            int x = num;
+            for (int factor = 2; factor * factor <= x; factor++)
             {
-              vec2.push_back(vec[i]);
+                while (x % factor == 0)
+                {
+                    factorCounts[factor]++;
+                    x /= factor;
+                }
             }
-            else
+
+            if (x > 1)
             {
-              vec2.push_back(vec[i]);
-              vec2.push_back(vec[i]);
-              
+                factorCounts[x]++;
             }
         }
-        cout<<vec2.size()<<endl;
-        for(int i =0;i<vec2.size();i++)
+
+        bool isPossible = true;
+
+        for (auto it = factorCounts.begin(); it != factorCounts.end(); ++it)
         {
-          cout<<vec2[i]<<" ";
+            if (it->second % n != 0)
+            {
+                isPossible = false;
+                break;
+            }
         }
-        cout<<endl;
+
+        if (isPossible)
+        {
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
+        }
     }
+
+    return 0;
 }
