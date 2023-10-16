@@ -1,10 +1,10 @@
 /**
- * This is a codeforoces problem and the solution for the same
- * The question link for the same is
- * https://codeforces.com/contest/1881/problem/C
+ * This is a codeforces question and the solution for the sane 
+ * The question link
+ * https://codeforces.com/contest/1790/problem/C
  * 
- * The solution link for the same is 
- * https://codeforces.com/contest/1881/submission/228222582
+ * The solution for the same is
+ * https://codeforces.com/contest/1790/submission/228456600
 */
 #include<iostream>
 #include<map>
@@ -19,32 +19,37 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<vector<char>> vec(n,vector<char>(n));
+    vector<vector<int>> vec(n,vector<int>(n));
     for(int i=0;i<n;i++)
     {
-        for(int j=0;j<n;j++)
+        for(int j=1;j<n;j++)
         {
             cin>>vec[i][j];
         }
     }
-    int cnt=0;
-    for(int k=0;k<2;k++)
+    int cnt = 0; 
+    int el=0; 
+    //cout<<vec[0][1]<<endl;
+    for (int i = 0; i <n; i++) {
+        if (cnt == 0) {
+            cnt = 1;
+            el = vec[i][1];
+        }
+        else if (el == vec[i][1]) cnt++;
+        else cnt--;
+    }
+    cout<<el<<" ";
+    for(int i=0;i<n;i++)
     {
-        for (int i = 0; i < n; i++)
+        if(el!=vec[i][1])
         {
-            for (int j = 0; j < n; j++)
+            for(int j=1;j<n;j++)
             {
-                if(vec[i][j]!=vec[j][n-i-1])
-                {
-                    cnt+=abs(vec[i][j]-vec[j][n-i-1]);
-                    vec[i][j]=max(vec[i][j],vec[j][n-i-1]);
-                    vec[j][n-i-1]=vec[i][j];
-                }
+                cout<<vec[i][j]<<" ";
             }
+            cout<<endl;
         }
     }
-    cout<<cnt<<endl;
-
 }
 int main()
 {
