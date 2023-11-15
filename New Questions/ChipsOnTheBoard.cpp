@@ -1,7 +1,6 @@
 #include<iostream>
 #include<map>
 #include<vector>
-#include<bits/stdc++.h>
 #include<math.h>
 using namespace std;
  
@@ -9,7 +8,22 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    vector<int> b(n);
+    vector<vector<int>> vec(n, vector<int> (n));
+    for(int i=0;i<n;i++)
+        cin>>a[i];
+    for(int i=0;i<n;i++)
+        cin>>b[i];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            
+        }
+    }
 }
 int main()
 {
@@ -24,6 +38,6 @@ int main()
     cin>>t;
     while(t--)
     {
-            solve();
+        solve();
     }
 }

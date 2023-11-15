@@ -1,0 +1,1 @@
+{"name":"Local: TreasureChest","url":"e:\\Competitive Coding\\codeforces\\New Questions\\TreasureChest.cpp","tests":[{"id":1699440839412,"input":"3\n5 7 2\n10 5 0\n5 8 2","output":"7\n10\n9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Competitive Coding\\codeforces\\New Questions\\TreasureChest.cpp","group":"local","local":true}
