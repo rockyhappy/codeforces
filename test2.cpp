@@ -1,66 +1,80 @@
-#include <iostream>
-#include <vector>
-#include <map>
-#include <cmath>
-#include <algorithm>
+#include<iostream>
+#include<map>
+#include<vector>
+#include<bits/stdc++.h>
+#include<math.h>
 using namespace std;
-
+ 
+#define endl '\n'
+#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+void solve()
+{
+    string str;
+    cin>>str;
+    int n =str.size();
+    string ans;
+    stack<int> cap;
+    stack<int> small;
+    for (int i = 0; i < n; i++)
+    {
+        if(str[i]=='b')
+        {
+            if(!small.empty())
+            {
+                ans[small.top()]='0';
+                small.pop();
+            }
+        }
+        else if(str[i]=='B')
+        {
+    
+            if(!cap.empty())
+            {
+                ans[cap.top()]='0';
+                cap.pop();
+            }
+        }
+        else if(str[i]>=96 && str[i]<=122)
+        {
+            small.push(i);
+            ans=ans+str[i];
+        }
+         else if(str[i]>=65 && str[i]<=90)
+        {
+            cap.push(i);
+            ans=ans+str[i];
+        }
+        // cout<<ans<<endl;
+        // cout<<small.empty()<<endl;
+        // if(!small.empty())
+        // {
+        //     cout<<str[small.top()]<<endl;
+        // }
+        // for(auto i : small)
+        // {
+        //     cout<<small.top();
+        // }
+        
+    }
+    int m=ans.size();
+    string s;
+    for (int i = 0; i < m; i++)
+    {
+        if(ans[i]!='0')
+        s+=ans[i];
+    }
+    
+    cout<<s<<endl;
+    
+}
 int main()
 {
-    int t;
-    cin >> t;
-
-    while (t--)
+    
+    fastio();
+    int t ;
+    cin>>t;
+    while(t--)
     {
-        int n;
-        cin >> n;
-        vector<int> nums(n);
-
-        for (int i = 0; i < n; i++)
-        {
-            cin >> nums[i];
-        }
-
-        map<int, int> factorCounts;
-
-        for (int num : nums)
-        {
-            int x = num;
-            for (int factor = 2; factor * factor <= x; factor++)
-            {
-                while (x % factor == 0)
-                {
-                    factorCounts[factor]++;
-                    x /= factor;
-                }
-            }
-
-            if (x > 1)
-            {
-                factorCounts[x]++;
-            }
-        }
-
-        bool isPossible = true;
-
-        for (auto it = factorCounts.begin(); it != factorCounts.end(); ++it)
-        {
-            if (it->second % n != 0)
-            {
-                isPossible = false;
-                break;
-            }
-        }
-
-        if (isPossible)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+            solve();
     }
-
-    return 0;
 }
