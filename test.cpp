@@ -1,46 +1,70 @@
-#include<iostream>
-#include<map>
-#include<vector>
-#include<math.h>
-#include<bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <vector>
+#include <bits/stdc++.h>
+#include <math.h>
 using namespace std;
-#define int long long
-#define mod 1000000007
-#define mod2 998244353
-#define endl '\n' 
-#define sz(x) (int)(x.size())
-#define all(x) x.begin(),x.end()
-#define print(x) {for(auto v: x) {cout << v<< ' ';} cout << endl;}
-#define printp(x) {for(auto v: x) {cout << v.first << ':' << v.second << ' ';} cout << endl;}
-#define printv(x) { for (auto v: x){ print(v) }}
- 
+
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-signed main()
+
+void solve()
 {
-    #ifndef ONLINE_JUDGE
-        // for getting input from input.txt
-        freopen("input.txt", "r", stdin);
-        // for writing output to output.txt
-        freopen("output.txt", "w", stdout);
-        #endif
-        fastio();
-    int t ;
-    cin>>t;
-    while(t--)
+    string str;
+    cin >> str;
+    int n = str.size();
+    string ans(n, '0');  
+    stack<int> cap;
+    stack<int> small;
+    for (int i = 0; i < n; i++)
     {
-            int n;cin >> n;
-        vector<pair<int,int>> arr(n);
-        for (int i=0;i<n;i++){
-            cin >> arr[i].first;
-            arr[i].second =i;
+        if (str[i] == 'b')
+        {
+            if (!small.empty())
+            {
+                ans[small.top()] = '0';
+                small.pop();
+            }
         }
-        sort(all(arr));
- 
-        vector<int> ans(n);
-        for (int i=0;i<n;i++){
-            ans[arr[i].second] = n - i;
+        else if (str[i] == 'B')
+        {
+            if (!cap.empty())
+            {
+                ans[cap.top()] = '0';
+                cap.pop();
+            }
         }
-        print(ans)
+        else if (str[i] >= 96 && str[i] <= 122)
+        {
+            small.push(i);
+            ans[i] = str[i];
+        }
+        else if (str[i] >= 65 && str[i] <= 90)
+        {
+            cap.push(i);
+            ans[i] = str[i];
+        }
     }
+
+    string s;
+    for (int i = 0; i < n; i++)
+    {
+        if (ans[i] != '0')
+            s += ans[i];
+    }
+
+    cout << s << endl;
+}
+
+int main()
+{
+    fastio();
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
 }
