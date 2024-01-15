@@ -8,18 +8,30 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    int a,b;
-    cin>>a>>b;
-    long long int  ans=a+b;
-    if(ans%2==0)
+    long long int n , f,a,b;
+    cin >> n >> f>>a>>b;
+    int cnt=0,cnt1=0;
+    vector<long long int > vec(n+1);
+    vec[0]=0;
+    for (int i = 1; i <=n; i++)
     {
-        cout<<"Bob"<<endl;
+        cin>>vec[i];
+        if((vec[i]-vec[i-1])*1ll*a<=b)
+        {
+            f-=((vec[i]-vec[i-1])*1ll*a);
+        }
+        else{
+            f-=b;
+        }
+       
     }
-    else
+    if(f>0)
     {
-        cout<<"Alice"<<endl;
+        cout<<"YES"<<endl;
     }
-
+    else{
+        cout<<"NO"<<endl;
+    }
 }
 int main()
 {

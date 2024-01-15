@@ -1,3 +1,8 @@
+/**
+ * This is a Codeforces Question and the solution for the same
+ * the question Link
+ * https://codeforces.com/contest/1921/problem/D
+*/
 #include<iostream>
 #include<map>
 #include<vector>
