@@ -9,25 +9,24 @@ using namespace std;
 void solve()
 {
     int n;
-    cin >> n;
-    string s,f;
-    cin>>s;
-    cin>>f;
-    int cnt=0,cnt1=0;
+    cin>>n;
+    vector<int> vec(n);
     for (int i = 0; i < n; i++)
     {
-        if(s[i]!=f[i]){
-            if(s[i]=='1')
-            {
-                cnt++;
-            }
-            else{
-                cnt1++;
-            }
-        }
-        
+        cin>>vec[i];
     }
-    cout<<cnt+cnt1-min(cnt,cnt1)<<endl;
+    cout<<vec[0]<<" ";
+    long long int sum=vec[0];
+    int odds=(vec[0]%2==0)?0:1;
+    for (int i = 1; i < n; i++)
+    {
+        if(vec[i]&1)odds++;
+        sum+=vec[i];
+        int sub=odds/3;
+        sub+=(odds%3==1)?1:0;
+        cout<<sum-sub<<" ";
+    }
+    cout<<endl;
     
 }
 int main()

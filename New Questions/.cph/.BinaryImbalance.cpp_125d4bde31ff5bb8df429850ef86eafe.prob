@@ -1,0 +1,1 @@
+{"name":"Local: BinaryImbalance","url":"e:\\Competitive Coding\\codeforces\\New Questions\\BinaryImbalance.cpp","tests":[{"id":1702016490419,"input":"3\n2\n00\n2\n11\n2\n10\n","output":"YES\nNO\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Competitive Coding\\codeforces\\New Questions\\BinaryImbalance.cpp","group":"local","local":true}
