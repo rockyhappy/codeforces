@@ -1,0 +1,1 @@
+{"name":"Local: Haman_odessey","url":"e:\\Competitive Coding\\codeforces\\New Questions\\Haman_odessey.cpp","tests":[{"id":1705524316979,"input":"3\n3\n1 2 3\n5\n2 3 1 5 2\n4\n5 7 12 6","output":"1\n2\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Competitive Coding\\codeforces\\New Questions\\Haman_odessey.cpp","group":"local","local":true}

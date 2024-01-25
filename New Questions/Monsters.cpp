@@ -12,30 +12,60 @@ using namespace std;
  
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-void solve()
+
+bool sortbysecdesc(const pair<int,int> &a,
+                   const pair<int,int> &b)
+{
+    if(a.first<b.first)
+    {
+        return true;
+    }
+    else if(a.first==b.first)
+    {
+        if(a.second>b.second)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+    else
+    {
+        return false;
+    }
+}
+void solve2()
 {
     int n ,k;
     cin>>n>>k;
-    vector<int> vec(n);
-    priority_queue<pair<int,int>> q;
-    for (int i = 0; i < n; i++)
+    vector<int> vec(n+1);
+    vector<pair<int,int>> ans;
+    for (int i = 1; i <= n; i++)
     {
         cin>>vec[i];
-        q.push({vec[i],i+1});
-    }
-    while (q.top().first>0)
-    {
-        if(q.top().first-k<=0)cout<<q.top().second<<" ";
-
-        q.push({q.top().first-k,q.top().second});
-        q.pop();
-        for(auto i:q)
+        vec[i]%=k;
+        if(vec[i]==0)
         {
-            cout<<i.first<<endl;
+            vec[i]=k;
         }
+        ans.push_back({vec[i],i});
     }
-   cout<<endl;
-
+    sort(ans.begin(),ans.end(), sortbysecdesc);
+    vector<int> show;
+    for(auto i:ans)
+    {
+        show.push_back(i.second);
+    }
+    reverse(show.begin(),show.end());
+    for (int i = 0; i < show.size(); i++)
+    {
+        cout<<show[i]<<" ";
+    }
+    
+    cout<<endl;
     
 }
 int main()
@@ -45,6 +75,6 @@ int main()
     cin>>t;
     while(t--)
     {
-        solve();
+        solve2();
     }
 }
