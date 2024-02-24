@@ -3,7 +3,14 @@
         "iostream": "cpp",
         "chrono": "cpp",
         "span": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "cmath": "cpp",
+        "initializer_list": "cpp",
+        "valarray": "cpp",
+        "random": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

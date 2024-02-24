@@ -10,27 +10,24 @@ void solve()
 {
     int n ;
     cin>>n;
-    vector<int> arr(n);
+    string s;
+    cin>>s;
+    set<char> st;
+    long long int ans = 0,cnt=0;
     for(int i=0;i<n;i++)
     {
-        cin>>arr[i];
-    }
-    long long int ans=0;
-    ans+=arr[0];
-    ans++;
-    for(int i=1;i<n;i++)
-    {
-        int mod=ans%arr[i];
-        mod=arr[i]-mod;
-        if(mod==arr[i])
+        if(st.find(s[i])==st.end())
         {
-            mod=0;
+            cnt++;
+            ans+=cnt;
         }
-        ans+=mod;
-        ans++;
-        
+        else
+        {
+            ans+=cnt;
+        }
+        st.insert(s[i]);
     }
-    cout<<ans-1<<endl;
+    cout<<ans<<endl;
 }
 int main()
 {

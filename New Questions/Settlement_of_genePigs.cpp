@@ -10,27 +10,26 @@ void solve()
 {
     int n ;
     cin>>n;
-    vector<int> arr(n);
-    for(int i=0;i<n;i++)
+    vector<int> vec(n+1);
+    for(int i=1;i<=n;i++)
     {
-        cin>>arr[i];
+        cin>>vec[i];
     }
-    long long int ans=0;
-    ans+=arr[0];
-    ans++;
-    for(int i=1;i<n;i++)
+    int cnt=0,mx=0,cnt1=0;
+    for(int i=1;i<=n;i++)
     {
-        int mod=ans%arr[i];
-        mod=arr[i]-mod;
-        if(mod==arr[i])
+        if(vec[i]==1)
         {
-            mod=0;
+            cnt++;
         }
-        ans+=mod;
-        ans++;
-        
+        else{
+            cnt1+=cnt;
+            cnt=0;
+        }
+        mx= max(mx,cnt+(int)(cnt1?ceil((cnt1+1)/2.0):0));
     }
-    cout<<ans-1<<endl;
+    // cout<<endl;
+    cout<<mx<<endl;
 }
 int main()
 {

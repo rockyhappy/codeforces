@@ -8,29 +8,29 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    int n ;
+    int n;
     cin>>n;
-    vector<int> arr(n);
+    string str;
+    cin>>str;
+    int cnt=0;
     for(int i=0;i<n;i++)
     {
-        cin>>arr[i];
-    }
-    long long int ans=0;
-    ans+=arr[0];
-    ans++;
-    for(int i=1;i<n;i++)
-    {
-        int mod=ans%arr[i];
-        mod=arr[i]-mod;
-        if(mod==arr[i])
+        if(str[i]=='B')
         {
-            mod=0;
+            cnt=i;
+            break;
         }
-        ans+=mod;
-        ans++;
-        
     }
-    cout<<ans-1<<endl;
+
+    reverse(str.begin(),str.end());
+    for(int i=0;i<n;i++)
+    {
+        if(str[i]=='B')
+        {
+            cout<<(n-i-1)-cnt+1<<endl;
+            return;
+        }
+    }
 }
 int main()
 {
