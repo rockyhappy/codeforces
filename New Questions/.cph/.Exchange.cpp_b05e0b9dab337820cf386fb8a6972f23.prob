@@ -1,0 +1,1 @@
+{"name":"Local: Exchange","url":"e:\\Competitive Coding\\codeforces\\New Questions\\Exchange.cpp","tests":[{"id":1709140358103,"input":"4\n100 25 30\n9999997 25 50\n52 50 48\n49 50 1\n","output":"4\n400000\n1\n1\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Competitive Coding\\codeforces\\New Questions\\Exchange.cpp","group":"local","local":true}

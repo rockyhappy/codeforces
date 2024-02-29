@@ -63,7 +63,6 @@ void solve()
             ans[i]=ans[i-1]+ans[i];
         }
     }
-    //make the last cnt elements equal to -1
     for(int i=n-1;i>=0;i--)
     {
         if(cnt==0) break;
