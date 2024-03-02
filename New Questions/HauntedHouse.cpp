@@ -1,7 +1,6 @@
 #include<iostream>
 #include<map>
 #include<vector>
-#include<math.h>
 #include<bits/stdc++.h>
 using namespace std;
  
@@ -13,47 +12,81 @@ void solve()
     cin>>n;
     string str;
     cin>>str;
-    //reverse(str.begin(),str.end());
-    int zeroCount=0;
-    //vector<int> ans(n,-1);
-    set<int> s;
-    for(int i=0;i<n;i++)if(str[i]=='0')s.insert(i);
-
-    long long int ans=0;
+    vector<long long int> ans(n);
+    int cnt=0;
+    for (int i = 0; i < n; i++)
+    {
+        if(str[i]=='1') cnt++;
+    }
+    stack<int> s;
+    for(int i=0;i<n;i++)
+    {
+        if(str[i]=='0')
+        {
+            s.push(i);
+        }
+    }
     for(int i=n-1;i>=0;i--)
     {
-
-        if(str[i]=='1')
+ 
+        if(str[i]=='0')
         {
-            if(ans==-1 || s.size()==0 ) ans=-1;
-            else
-            {
-                ans+=i- *s.rbegin();
-                str[*s.rbegin()]='1';
-                s.erase(--s.end());
-            }
+         ans[n-i-1]=0;
         }
-        else if(s.size() && *s.rbegin()==i)
-            s.erase(i);
+        if(str[i]=='1' || str[i]=='2')
+        {
+            if(s.empty())
+            {
+                ans[n-i-1]=-1;
+            }
+            else{
+                while(!s.empty())
+                {
+                    if(s.top()<i){
+                        ans[n-i-1]=i-s.top();
+                        str[s.top()]='2';
+                        s.pop();
+                        break;
+                    }
+                    s.pop();
+                }
+            }
+            
+        }
 
-        cout<<ans<<" ";
+    }
+
+    for(int i=0;i<n;i++)
+    {
+        if(i!=0 && ans[i]!=-1)
+        {
+            ans[i]=ans[i-1]+ans[i];
+        }
+    }
+    for(int i=n-1;i>=0;i--)
+    {
+        if(cnt==0) break;
+        else{
+            ans[i]=-1;
+            cnt--;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        cout<<ans[i]<<" ";
     }
     cout<<endl;
-
+    
+    
 }
 int main()
 {
-    #ifndef ONLINE_JUDGE
-        // for getting input from input.txt
-        freopen("input.txt", "r", stdin);
-        // for writing output to output.txt
-        freopen("output.txt", "w", stdout);
-        #endif
-        fastio();
+ 
+   fastio(); 
     int t ;
     cin>>t;
     while(t--)
     {
-        solve();           
+        solve();    
     }
 }

@@ -8,7 +8,17 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    cout<<__gcd(0,2)<<endl;
+    int n , a, b;
+    cin>>n>>a>>b;
+    if(b<a){
+        cout<<1<<endl;
+        return;
+    }
+    else 
+    {
+        cout<<(n+a-1)/a<<endl;
+        return;
+    }
 }
 int main()
 {
