@@ -22,9 +22,9 @@ void solve()
         if((int)(a[i]|x)!=x) eliminateA=true;
         if((int)(b[i]|x)!=x) eliminateB=true;
         if((int)(c[i]|x)!=x) eliminateC=true;
-            if(eliminateA==false) temp.push_back(a[i]);
-            if(eliminateB==false) temp.push_back(b[i]);
-            if(eliminateC==false) temp.push_back(c[i]);
+        if(eliminateA==false) temp.push_back(a[i]);
+        if(eliminateB==false) temp.push_back(b[i]);
+        if(eliminateC==false) temp.push_back(c[i]);
         
     }
     int ans=0;
