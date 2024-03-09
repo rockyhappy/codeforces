@@ -3,59 +3,63 @@
 #include<vector>
 #include<bits/stdc++.h>
 using namespace std;
-
-#define ll long long  
+ 
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-ll mulmod(ll a, ll b, ll mod)
+bool isPalindrome(string str)
 {
-    ll res = 0; 
-    a = a % mod;
-    while (b > 0)
+    int l = 0;
+    int h = str.size() - 1;
+    while (h > l)
     {
-        if (b % 2 == 1)
-            res = (res + a) % mod;
-        a = (a * 2) % mod;
- 
-        b /= 2;
+        if (str[l++] != str[h--])
+        {
+            return false;
+        }
     }
- 
-    return res % mod;
+    return true;
 }
- 
 void solve()
 {
-    int n ,m;
-    cin>>n>>m;
-    vector<int> arr(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>arr[i];
-    }
+    int n ;
+    cin>>n;
     string str;
     cin>>str;
-    long long int pro=1;
-    vector<int> forward(n);
-    vector<int> backward(n);
-    ll result = 1;
-    for (int i = 0; i < n; ++i) {
+    int s=str.size();
+    // if(isPalindrome(str))
+    // {
+    //     if()
+    // }
+    for(int i=0;i<s;i++)
+    {
+        if(str[i]<str[s-i-1])
+        {
+            break;
+        }
+        else if(str[i]>str[s-i-1])
+        {
+            n-=1;
+            reverse(str.begin(),str.end());
+            break;
+        }
+        if(i>=s/2)
+        {
+            break;
+        }
+    }
+    // reverse(str.begin(),str.end());
+    if(n%2==0)
+    {
+        cout<<str<<endl;
+        return;
+    }
+    else 
+    {
+        cout<<str;
+        reverse(str.begin(),str.end());
+        cout<<str<<endl;
+    }
 
-        result = mulmod(result, arr[i], m);
-        cout<<result<<" ";
-        forward[i] = result;
-    }
-    cout<<endl;
-    result=1;
-    for (int i = n-1; i >=0; i--) {
-        result = mulmod(result, arr[i], m);
-        cout<<result<<" ";
-        backward[i] = result;
-    }
-    cout<<endl;
-    
-    
-    cout<<result<<endl;
-    
 }
 int main()
 {

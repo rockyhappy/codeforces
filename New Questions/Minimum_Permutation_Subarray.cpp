@@ -1,11 +1,3 @@
-/**
- * This is a problem from codefdorces and the 
- * solution for the same, the problrm link for the same is 
- * https://codeforces.com/contest/1832/problem/B
- * 
- * This solution is incorrect and find and undertstand the correct 
- * solution
-*/
 #include<iostream>
 #include<map>
 #include<vector>
@@ -16,17 +8,29 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    int n;
+    int n ;
     cin>>n;
     vector<int> arr(n);
-    long long int sum=0;
+    int one=0,two=0,three=0;
     for (int i = 0; i < n; i++)
     {
         cin>>arr[i];
-        sum+=arr[i];
+        if(arr[i]==1)one=i;
+        else if(arr[i]==2)two=i;
+        else if(arr[i]==n)three=i;
     }
-    sort(arr.begin(),arr.end());
-
+    if(three<one && three <two)
+    {
+        cout<<three+1<<" "<<min(one,two)+1<<endl;
+        return;
+    }
+    if(three>one && three >two)
+    {
+        cout<<max(one,two)+1<<" "<<three+1<<endl;
+        return;
+    }
+    cout<<1<<" "<<1<<endl;
+    return;
 }
 int main()
 {
