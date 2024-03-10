@@ -32,6 +32,18 @@ void solve()
         cout<<"0"<<endl;
         return;
     }
+    vector<int>gcd;
+    for (int  i = 0; i <= n/2; i++)
+    {
+        int temp=max(a[i],a[n-i-1])-min(a[i],a[n-i-1]);
+        gcd.push_back(temp);
+    }
+    int ans=gcd[0];
+    for(int i=0;i<gcd.size();i++)
+    {
+        ans=__gcd(ans,gcd[i]);
+    }
+    cout<<ans<<endl;
     
 }
 int main()
