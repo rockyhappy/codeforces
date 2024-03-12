@@ -1,6 +1,3 @@
-/**
- * This is a codeforces question and the answer is as follows
-*/
 #include<iostream>
 #include<map>
 #include<vector>
@@ -14,30 +11,32 @@ void solve()
     int n ;
     cin>>n;
     vector<int> a(n);
-    vector<int> b(n);
     for (int i = 0; i < n; i++)
     {
         cin>>a[i];
     }
+    for (int i = 0; i < n-2; i++)
+    {
+        if(a[i]<0)
+        {
+            cout<<"NO"<<endl;
+            return;
+        }
+        int temp=a[i];
+        a[i]=0;
+        a[i+1]-=temp*2;
+        a[i+2]-=temp;
+    }
     for (int i = 0; i < n; i++)
     {
-        cin>>b[i];
-    }
-    int flag=0,markFirst=0,markLast=0;
-    for (int i = 0; i < n; i++)
-    {
-        if(a[i]!=b[i] && flag==0)
+        if(a[i]!=0)
         {
-            flag=1;
-            markFirst=i;
-            continue;
-        }
-        if(a[i]!=b[i] && flag==1)
-        {
-            markLast=i;
+            cout<<"NO"<<endl;
+            return;
         }
     }
-    cout<<markFirst+1<<" "<<markLast+1<<endl;
+    cout<<"YES"<<endl;
+    
     
 }
 int main()
