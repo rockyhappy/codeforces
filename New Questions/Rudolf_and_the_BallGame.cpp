@@ -1,3 +1,6 @@
+/**
+ * This is a codeforces question and the solution for the same the answer is as follows
+*/
 #include<iostream>
 #include<map>
 #include<vector>

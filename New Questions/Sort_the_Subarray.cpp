@@ -37,6 +37,24 @@ void solve()
             markLast=i;
         }
     }
+    sort(a.begin()+markFirst,a.begin()+markLast+1);
+    for (int i = markFirst; i >0; i--)
+    {
+        // cout<<a[i]<<" "<<a[i-1]<<endl;
+            if(a[i]>=a[i-1])
+            markFirst--;
+            else 
+            break;
+    }
+    for (int i = markLast; i < n-1 ; i++)
+    {
+        // cout<<a[i]<<" "<<a[i+1]<<endl;
+            if(a[i]<=a[i+1])
+            markLast++;
+            else 
+            break;
+    }
+    
     cout<<markFirst+1<<" "<<markLast+1<<endl;
     
 }
