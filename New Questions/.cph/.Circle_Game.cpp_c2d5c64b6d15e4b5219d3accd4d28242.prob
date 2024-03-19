@@ -1,0 +1,1 @@
+{"name":"Local: Circle_Game","url":"e:\\Competitive Coding\\codeforces\\New Questions\\Circle_Game.cpp","tests":[{"id":1710324823237,"input":"2\n1\n37\n2\n100 100\n","output":"Mike\nJoe\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Competitive Coding\\codeforces\\New Questions\\Circle_Game.cpp","group":"local","local":true}

@@ -8,18 +8,25 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    int n,k;
-    cin>>n>>k;
-    int i=1;
-    int cnt=0;
-    if(k>=n-1)
+    int n;
+    cin>>n;
+    vector<int> vec(n-1);
+    for(int i=0;i<n-1;i++)
     {
-        cout<<1<<endl;
-        return;
+        cin>>vec[i];
     }
-    else{
-        cout<<n<<endl;
+    vector<int> ans(n);
+    ans[0]=vec[0];
+    ans[n-1]=vec[n-2];
+    for(int i=1;i<n-1;i++)
+    {
+        ans[i]=min(vec[i-1],vec[i]);
     }
+    for(int i=0;i<n;i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<endl;
 }
 int main()
 {
@@ -32,3 +39,4 @@ int main()
         solve();    
     }
 }
+

@@ -6,59 +6,61 @@ using namespace std;
  
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-bool isPalindrome(string str)
+int Mex(vector<int> vec)
 {
-    int l = 0;
-    int h = str.size() - 1;
-    while (h > l)
+    set<int> s;
+    for(auto i: vec)
     {
-        if (str[l++] != str[h--])
+        s.insert(i);
+    }
+    for(int i=0;i<vec.size();i++)
+    {
+        if(s.find(i)==s.end())
         {
-            return false;
+            return i;
         }
     }
-    return true;
+    return vec.size();
 }
 void solve()
 {
     int n ;
     cin>>n;
-    string str;
-    cin>>str;
-    int s=str.size();
-    // if(isPalindrome(str))
-    // {
-    //     if()
-    // }
-    for(int i=0;i<s;i++)
+    vector<int> vec(n);
+    map<int,int> mp;
+    for(int i=0;i<n;i++)
     {
-        if(str[i]<str[s-i-1])
-        {
-            break;
-        }
-        else if(str[i]>str[s-i-1])
-        {
-            n-=1;
-            reverse(str.begin(),str.end());
-            break;
-        }
-        if(i>=s/2)
-        {
-            break;
-        }
+        cin>>vec[i];
+        mp[vec[i]]++;
     }
-    // reverse(str.begin(),str.end());
-    if(n%2==0)
-    {
-        cout<<str<<endl;
-        return;
-    }
-    else 
-    {
-        cout<<str;
-        reverse(str.begin(),str.end());
-        cout<<str<<endl;
-    }
+    sort(vec.begin(),vec.end());
+     vector<int> ans;
+     vector<int> ans1;
+     for(auto i: mp)
+     {
+        if(i.second==1)
+        {
+            ans1.push_back(i.first);
+        }
+        else
+        {
+            ans.push_back(i.first);
+        }
+     }
+     int cnt=0;
+     for(int i=0;i<ans1.size();i++)
+     {
+        if(cnt%2==0)
+        {
+            ans.push_back(ans1[i]);
+        }
+        cnt++;
+     }
+     cout<<Mex(ans)<<endl;
+
+   
+   
+
 
 }
 int main()
