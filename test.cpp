@@ -6,91 +6,85 @@ using namespace std;
  
 #define endl '\n'
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-void solve()
-{
-    // cout<<"HELLO"<<endl;
-    int n,k;
-    cin>>n>>k;
-    vector<int> vec(2*n);
-    for(int i=0;i<2*n;i++)
-    {
-        cin>>vec[i];
-    }
-    set<int> s;
-    set<int> s1;
-    set<int> s2;
-    set<int> s3;
-    for (int i = 0; i < n; i++)
-    {
-        if(s.find(vec[i])==s.end())
-        {
-            s.insert(vec[i]);
-        }
-        else
-        {
-            s1.insert(vec[i]);
-        }
-    }
-    for(int i=n;i<2*n;i++)
-    {
-        if(s3.find(vec[i])==s3.end())
-        {
-            s3.insert(vec[i]);
-        }
-        else
-        {
-            s2.insert(vec[i]);
-        }
-    }
-    
-   vector<int> ans1;
-    vector<int> ans2;
-    int cnt=k;
-    for(auto i: s1)
-    {
-        if(cnt==0)
-        {
-            break;
-        }
-        ans1.push_back(i);
-        ans1.push_back(i);
-        cnt--;
-    }
-    cnt=k;
-    for(auto i: s2)
-    {
-        if(cnt==0)
-        {
-            break;
-        }
-        ans2.push_back(i);
-        ans2.push_back(i);
-        cnt--;
-    }
-    cnt*=2;
-    if(cnt!=0)
-    {
-        for(auto i: s)
-        {
-            if(s1.find(i)==s1.end())
-            {
-                ans1.push_back(i);
-                ans2.push_back(i);
-            }
-        }
-    }
-    for (int i = 0; i < 2*k; i++)
-    {
-        cout<<ans1[i]<<" ";
-    }
-    cout<<endl;
-    for (int i = 0; i < 2*k; i++)
-    {
-        cout<<ans2[i]<<" ";
-    }
-    cout<<endl;
-    
+
+long long int modulo(long long int x, long long int m) {
+    return (x % m + m) % m;
 }
+
+long long int kadane(vector<long long int> vec)
+{
+    long long int max_sum=LONG_LONG_MIN;
+    long long int sum=0;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        sum+=vec[i];
+        max_sum=max(max_sum,sum);
+        if(sum<0)
+        {
+            sum=0;
+        }
+    }
+    return max_sum;
+}
+
+
+
+void solve2() {
+    int n, k;
+    cin >> n >> k;
+    vector<long long int> vec(n);
+    long long int total = 0;
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+        total += vec[i];
+        total %= 1000000007;
+    }
+    long long int sum = kadane(vec);
+    sum = max(sum, 0LL);
+    long long int ans = 0;
+
+    if (k > 0) {
+        long long int power = 1;
+        for (int i = 0; i < k; i++) {
+            power = (power *1ll* 2) % 1000000007;
+        }
+        power--;
+        power %= 1000000007;
+        ans = (sum *1ll* power)%1000000007;
+        ans %= 1000000007;
+    }
+
+    cout << modulo((ans + total), 1000000007) << endl;
+}
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<long long int> vec(n);
+    long long int total = 0;
+    for (int i = 0; i < n; i++) {
+        cin >> vec[i];
+        total += vec[i];
+        total %= 1000000007;
+    }
+    long long int sum = kadane(vec);
+    sum = max(sum, 0LL);
+    long long int ans = sum;
+
+    for (int i = 0; i < k; i++) {
+        ans *= 2;
+        ans %= 1000000007; 
+    }
+
+    ans -= sum;
+    ans %= 1000000007; 
+
+    ans += total;
+    ans %= 1000000007; 
+
+    cout << modulo(ans, 1000000007) << endl;
+}
+
+
 int main()
 {
  

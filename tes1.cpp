@@ -8,18 +8,24 @@ using namespace std;
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 void solve()
 {
-    int n,k;
-    cin>>n>>k;
-    int i=1;
-    int cnt=0;
-    if(k>=n-1)
+    int n;
+    cin>>n;
+    vector<int> vec(n+1);
+    for (int i = 1; i <= n; i++)
     {
-        cout<<1<<endl;
-        return;
+        cin>>vec[i];
     }
-    else{
-        cout<<n<<endl;
+    sort(vec.begin(),vec.end());
+    int median=(n+1)/2;
+    int median2=median-1;
+    int cnt=0;
+    for (int i = median; i <=n; i++)
+    {
+        if(vec[i]==vec[median])
+        cnt++;
     }
+    cout<<cnt<<endl;
+    
 }
 int main()
 {
