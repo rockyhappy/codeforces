@@ -40,3 +40,23 @@ map<int, int> primeFactors(int n)
     }
     return ans;
 }
+
+long long int countBinaryInversions(vector<int> vec)
+{
+    int n=vec.size();
+    int cntZero=0,cntOne=0;
+    long long int ans=0;
+    for (int  i = 0; i < n; i++)
+    {
+        if(vec[i]==0)
+        {
+            ans+=cntOne;
+            cntZero++;
+        }
+        else
+        {
+            cntOne++;
+        }
+    }
+    return ans;
+}
