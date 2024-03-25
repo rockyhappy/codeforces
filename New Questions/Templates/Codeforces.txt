@@ -1,6 +1,8 @@
+
 long long int modulo(long long int x, long long int m) {
     return (x % m + m) % m;
 }
+
 
 long long int kadane(vector<long long int> vec)
 {
@@ -17,6 +19,7 @@ long long int kadane(vector<long long int> vec)
     }
     return max_sum;
 }
+
 
 map<int, int> primeFactors(int n)
 {
@@ -41,6 +44,7 @@ map<int, int> primeFactors(int n)
     return ans;
 }
 
+
 long long int countBinaryInversions(vector<int> vec)
 {
     int n=vec.size();
@@ -59,4 +63,60 @@ long long int countBinaryInversions(vector<int> vec)
         }
     }
     return ans;
+}
+
+
+int MEX(vector<int> vec)
+{
+    int n = vec.size();
+    set<int> s;
+    for (int i = 0; i < n; i++)
+    {
+        s.insert(vec[i]);
+    }
+    for (int i = 0; i <= n; i++)
+    {
+        if (s.find(i) == s.end())
+        {
+            return i;
+        }
+    }
+    return n + 1;
+}
+
+
+vector<int> SeiveOfEratosthenes(int n)
+{
+    vector<int> prime(n + 1, 1);
+    prime[0] = 0;
+    prime[1] = 0;
+    for (int p = 2; p * p <= n; p++)
+    {
+        if (prime[p] == 1)
+        {
+            for (int i = p * p; i <= n; i += p)
+                prime[i] = 0;
+        }
+    }
+    return prime;
+}
+
+
+int longestStreak(vector<int> vec, int x)
+{
+    int maxStreak = 0;
+    int currentStreak = 0;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        if (vec[i] == x)
+        {
+            currentStreak++;
+            maxStreak = max(maxStreak, currentStreak);
+        }
+        else
+        {
+            currentStreak = 0;
+        }
+    }
+    return maxStreak;
 }
